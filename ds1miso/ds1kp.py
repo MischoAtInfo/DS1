@@ -51,11 +51,12 @@ frequent_itemsets['length'] = frequent_itemsets['itemsets'].apply(lambda x: len(
 support = st.slider("Support", min_value=0.01, max_value=0.5, value=0.01)
 confidence = st.slider("Confidence", min_value=0.01, max_value=0.95, value=0.01)
 
-# creating asssociation rules
+# Extracting the most frequent itemsets via Mlxtend.
+# The length column has been added to increase ease of filtering.
 rules=apriori(dataset,min_support=support, use_colnames=True)
 rules=association_rules(rules, metric="confidence", min_threshold=confidence)
 
-#st layout adjustments
+#define whether antecedents & consequents are dependent or not
 rules["antecedents"] = rules["antecedents"].apply(lambda x: len(x))
 rules["consequents"] = rules["consequents"].apply(lambda x: len(x))
 
