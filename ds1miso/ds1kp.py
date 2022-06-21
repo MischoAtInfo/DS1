@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
-from mlxtend.frequent_patterns import association_rules, fpgrowth, apriori
+from mlxtend.frequent_patterns import association_rules, apriori
 from mlxtend.preprocessing import TransactionEncoder
 
 
